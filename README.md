@@ -17,6 +17,7 @@ User could...
 - Cloud server (Amazon EC2): Store the main website file to operate online.
 - Database System (MongoDB): Store the user information and Stock information
 - Website: Using Javascript and Html to build up the environment of the web application.
+
 ## Steps to Build up the Application
 - Step1: Create the project plan and learning the related knowledge on Cloud Server, Database and website implementation. Collect API information from Yahoo Finance and Google Finanace.
 - Step2: Build the system sketch for the website and E/R Diagram for the database structure
