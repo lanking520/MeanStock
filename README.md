@@ -28,6 +28,10 @@ User could...
 - Step6: Creat the Investment tool and optimize the code/system structure
 - Step7: Test the system and push it to the Cloud Server
 
-# Challenges and Hightlights
+# Challenges and Highlights
 ## Challenges
-- 
+- Database structure and relationship between entities
+- Interactivity between database and website
+- Fetching the stock information from API and display them correctly on UI
+
+## Highlights
