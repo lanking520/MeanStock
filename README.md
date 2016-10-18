@@ -4,6 +4,7 @@ Member 1 Name: Qing Lan    Uni:ql2282
 Member 2 Name: Jianpu Ma   Uni:jm4437
 # Overview
 Mean Stock is a web application specifically designed for investor to track their favorite stock anytime by using thier Smartphone, Tablet and computer. User could store thier favorite stocks and obtain real-time stock price map. They can also use virtual investment tool in the web application to simulate the actual bid sell/ask environment. The basic system will contain a cloud server, Database and Node.js environment.
+
 # Goals
 User could...
 - Check Real-time Stock price
@@ -28,4 +29,5 @@ User could...
 - Step7: Test the system and push it to the Cloud Server
 
 # Challenges and Hightlights
-
+## Challenges
+- 
