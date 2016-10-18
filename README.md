@@ -11,5 +11,20 @@ User could...
 - Add/Modify Personal User account
 - Add/Modify personal stocks
 - Use Virtual Investment Simulation tool
+
 # Implementation Specification
+## System overview
+- Cloud server (Amazon EC2): Store the main website file to operate online.
+- Database System (MongoDB): Store the user information and Stock information
+- Website: Using Javascript and Html to build up the environment of the web application.
+## Steps to Build up the Application
+- Step1: Create the project plan and learning the related knowledge on Cloud Server, Database and website implementation. Collect API information from Yahoo Finance and Google Finanace.
+- Step2: Build the system sketch for the website and E/R Diagram for the database structure
+- Step3: Implement the Database on MongoDB and start coding on website
+- Step4: Establish the connection between DB and web application
+- Step5: Fetch the Stock information from API provider and display them on the web application
+- Step6: Creat the Investment tool and optimize the code/system structure
+- Step7: Test the system and push it to the Cloud Server
+
+# Challenges and Hightlights
 
