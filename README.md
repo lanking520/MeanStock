@@ -39,8 +39,6 @@ User could...
 - Customized stock tracker and virtual investment tool
 - Multiple device support
 
-# Plan and schedule
-
 
 
  
