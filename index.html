@@ -5,11 +5,22 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $.get("http://finance.google.com/finance/info",{client:"ig",q:"NASDAQ:MSFT"}, function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
+        $.ajax({
+            url: "http://finance.google.com/finance/info",
+            data: {client:"ig",q:"NASDAQ:MSFT"},
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'jsonp',
+            error: function() { alert('Data Fetching Failed!'); },
+}).done(function(data){
+            var output = '';
+            for (var property in data[0]) {
+            output += property + ': ' + data[0][property]+'; ';
+            }
+            alert(output);
+        })
         });
     });
-});
 </script>
 </head>
 <body>
