@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <p>Hello World to Mean Stock App</p>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.ajax({
-            url: "http://finance.google.com/finance/info",
-            data: {client:"ig",q:"NASDAQ:MSFT"},
-            type: 'GET',
-            crossDomain: true,
-            dataType: 'jsonp',
-            error: function() { alert('Data Fetching Failed!'); },
-}).done(function(data){
-            var output = '';
-            for (var property in data[0]) {
-            output += property + ': ' + data[0][property]+'\n';
-            }
-            alert(output);
-        })
-        });
-    });
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+<input id="stock_name">
+<button type = "button" onclick="get_stock()">Get Current Microsoft Stock</button>
+<p id="stock_info">Current Stock</p>
 
-<button>Get NASDAQ Microsoft</button>
-
+<script src="get_stock.js"></script>
 </body>
 </html>
