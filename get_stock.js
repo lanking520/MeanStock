@@ -10,7 +10,7 @@ function get_stock() {
             error: function() { alert('Data Fetching Failed!'); } }).done(function(data){
             var output = '';
             for (var property in data[0]) {
-            output += property + ': ' + data[0][property]+'; ';
+            output += property + ': ' + data[0][property]+'\n';
             }
             document.getElementById("stock_info").innerHTML=output;
         })
