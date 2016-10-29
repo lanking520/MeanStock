@@ -26,3 +26,5 @@ npm install --save method-override
 npm install --save body-parser
 npm install --save lodash
 ```
+## Running order
+In order to run this web app, you need mongodb setup in the server and have a name as meanstock
