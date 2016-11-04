@@ -37,7 +37,7 @@ mongoose.connection.once('open', function(){
     _.each(routes, function(controller, route){
            app.use(route, controller(app, route));
     });
-    console.log('Listening on port 1234...')
-    app.listen(1234);
+    console.log('Listening on port 8008...')
+    app.listen(8008);
 });
 
