@@ -5,10 +5,19 @@ module.exports = function(app,route){
     var rest =restful.model(
     'user',
     app.models.user
-    ).methods(['get','post','put','delete']);
+    ).methods(['get','post','put','delete']).before('get', function(req,res,next){
+        if(req.get('name')== undefined || req.get('password')== undefined )
+        {
+            res.send([]);
+        }
+        else
+        {
+            next();
+        }
+        });
     // Register this end with the app
     rest.register(app, route);
-    
+
     //Return middleware
     return function(req,res,next){
         next();
