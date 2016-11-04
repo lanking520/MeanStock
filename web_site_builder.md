@@ -6,6 +6,8 @@ Time: 33:46
 ## Requirement (Mac)
 ### System Environment
 ```
+sudo apt-get install build-essential curl git python-setuptools ruby
+
 brew install node
 
 brew install mongodb
