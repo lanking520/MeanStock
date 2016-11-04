@@ -1,4 +1,3 @@
-
 function get_stock() {
         var stockname = document.getElementById("stock_name").value;
         $.ajax({

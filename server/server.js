@@ -8,9 +8,9 @@ var _ = require('lodash');
 var app = express(); 
 
 //Add Middleware for REST API
-app.use(bodyParser.urlencoded({extended:true}));
+//app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(methodOverrde('X-HTTP-Method-Override'));
+//app.use(methodOverrde('X-HTTP-Method-Override'));
 
 //Add CORS 
 app.use(function(req,res,next){

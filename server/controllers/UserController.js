@@ -6,9 +6,11 @@ module.exports = function(app,route){
     'user',
     app.models.user
     ).methods(['get','post','put','delete']).before('get', function(req,res,next){
-        if(req.get('name')== undefined || req.get('password')== undefined )
+        var obj = req.query
+        if(obj['name']== undefined || obj['password'] == undefined )
         {
-            res.send([]);
+            console.log(req.query);
+            res.status(500).jsonp({ error: 'Bad Input' });
         }
         else
         {
