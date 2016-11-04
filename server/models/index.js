@@ -1,3 +1,4 @@
 module.exports = {
-    stock:require('./stock.js')
+    stock:require('./stock.js'),
+    user:require('./user.js')
 };

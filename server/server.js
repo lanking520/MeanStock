@@ -20,12 +20,12 @@ app.use(function(req,res,next){
     next();
 });
 
-/*
+
 app.use('/hello',function(req, res, next){
     res.send('Hello World');
     next();
 });
-*/
+
 
 //Connect to MongoDB
 mongoose.connect('mongodb://localhost/meanstock');
