@@ -18,7 +18,7 @@ jQuery.each( [ "get", "post","put", "delete" ], function( i, method ) {
 function login() {
         var name = document.getElementById("name").value;
         var password = document.getElementById("password").value;
-        $.get('http://localhost:1234/user', {'name':name,'password': password}, function(result){
+        $.get('http://35.162.122.68/user', {'name':name,'password': password}, function(result){
         var output = '';
             for (var property in result[0]) {
             output += property + ': ' + result[0][property]+'\n';
