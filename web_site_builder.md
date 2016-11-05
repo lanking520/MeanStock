@@ -32,3 +32,9 @@ npm install --save lodash
 ```
 ## Running order
 In order to run this web app, you need mongodb setup in the server and have a name as meanstock
+```
+# When you need your app to work in the background 
+screen
+use ctrl A+D to exit
+use exit; to shut down the screen
+```
