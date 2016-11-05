@@ -4,7 +4,7 @@
 Time: 33:46
 
 ## Requirement (Mac)
-On amazon EC2 mathince
+On amazon EC2 machince
 [http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2]
 ### System Environment
 ```
