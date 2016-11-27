@@ -1,7 +1,11 @@
 # Meanstock Web App
 
-## Current Progress
-Time: 33:46
+## Current Progress Front End
+- Using Angular JS to build the single page app
+- $Http for JSON Request
+- $Scope for basic data storage
+## Progress Backend
+- Running MongoDB with Node.js
 
 ## Requirement (Mac)
 On amazon EC2 machince
