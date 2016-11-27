@@ -4,6 +4,7 @@
 - Using Angular JS to build the single page app
 - $Http for JSON Request
 - $Scope for basic data storage
+
 ## Progress Backend
 - Running MongoDB with Node.js
 
