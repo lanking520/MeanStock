@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverrde = require('method-override');
+var helmet = require('helmet');
 var _ = require('lodash');
 
 //creating express app
@@ -20,6 +21,9 @@ app.use(function(req,res,next){
     next();
 });
 
+// Add security
+app.use(helmet());
+app.use(helmet.noCache());
 
 app.use('/hello',function(req, res, next){
     res.send('Hello World');
