@@ -1,28 +1,10 @@
-jQuery.each( [ "get", "post","put", "delete" ], function( i, method ) {
-  jQuery[ method ] = function( url, data, callback, type ) {
-    if ( jQuery.isFunction( data ) ) {
-      type = type || callback;
-      callback = data;
-      data = undefined;
-    }
+/// </// <reference path="angular.min.js" />
+var currentPage = "main.html";
+var myApp = angular.module("Mainmodule",[]);
 
-    return jQuery.ajax({
-      url: url,
-      type: method,
-      dataType: type,
-      data: data,
-      success: callback
-    });
-  };
-});
-function login() {
-        var name = document.getElementById("name").value;
-        var password = document.getElementById("password").value;
-        $.get('http://35.162.122.68/user', {'name':name,'password': password}, function(result){
-        var output = '';
-            for (var property in result[0]) {
-            output += property + ': ' + result[0][property]+'\n';
-            }
-        document.getElementById("Success").innerHTML=output;
-        });
-}
+var mainController = function($scope){
+  $scope.message = "Welcome to Mean Stock!";
+  $scope.currView = currentPage;
+};
+
+myApp.controller("MainController",mainController);

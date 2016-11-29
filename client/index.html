@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-    <script src = "js/angular.min.js"/>
-    <script src = "js/angular-route.min.js"/>
-    <title>Hello World to Stock App</title>
+    <script src = "js/angular.min.js"></script>
+    <script src = "js/angular-route.min.js"></script>
+    <script src = "js/login.js"></script>
 </head>
-<body>
-<input id="name" placeholder="name">
-<input id="password" placeholder="password">
-<button type = "button" onclick="login()">Login</button>
-<p id="Success">Success?</p>
-<script src="js/login.js"></script>
+<body ng-app="Mainmodule">
+<div ng-controller="MainController">
+    <div ng-include="currView"></div>
+</div>
 </body>
 </html>
