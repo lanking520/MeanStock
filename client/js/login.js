@@ -1,13 +1,14 @@
 /// </// <reference path="angular.min.js" />
 var myApp = angular.module("Mainmodule",[]);
 var currentview = "login/logintable.html"
-var mainController = function($scope){
+var mainController = function($scope,$http,$log){
   $scope.login = function(){
     if($scope.myEmail != undefined && $scope.myPassword != undefined){
-      $scope.lalara = "Success!";
-    }
-    else{
-      $scope.lalara = "";
+      $http({
+    url: user.details_path, 
+    method: "GET",
+    params: {email: $myEmail, password:$myPassword}
+    }).success(function(response) {$scope.result = response;});
     }
   }
   $scope.currView = "login/logintable.html";
