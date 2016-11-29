@@ -1,10 +1,17 @@
 /// </// <reference path="angular.min.js" />
-var currentPage = "main.html";
 var myApp = angular.module("Mainmodule",[]);
-
+var currentview = "login/logintable.html"
 var mainController = function($scope){
-  $scope.message = "Welcome to Mean Stock!";
-  $scope.currView = currentPage;
+  $scope.login = function(){
+    if($scope.myEmail != undefined && $scope.myPassword != undefined){
+      $scope.lalara = "Success!";
+    }
+    else{
+      $scope.lalara = "";
+    }
+  }
+  $scope.currView = currentview;
+  $scope.goreg = function(){currentview = "login/registertable.html"}
 };
 
 myApp.controller("MainController",mainController);
