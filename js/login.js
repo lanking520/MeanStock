@@ -10,8 +10,8 @@ var mainController = function($scope){
       $scope.lalara = "";
     }
   }
-  $scope.currView = currentview;
-  $scope.goreg = function(){currentview = "login/registertable.html"}
+  $scope.currView = "login/logintable.html";
+  $scope.goreg = function(){$scope.currView = "login/registertable.html"}
 };
 
 myApp.controller("MainController",mainController);
