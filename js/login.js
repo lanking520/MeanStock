@@ -12,6 +12,7 @@ var mainController = function($scope){
   }
   $scope.currView = "login/logintable.html";
   $scope.goreg = function(){$scope.currView = "login/registertable.html"}
+  $scope.backhome= function(){$scope.currView = "login/logintable.html"}
 };
 
 myApp.controller("MainController",mainController);
