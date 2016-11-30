@@ -2,11 +2,23 @@ var mongoose = require('mongoose');
 
 // create Stock schema
 var StockSchema = new mongoose.Schema({
-    title:{
+    Symbol:{
         type: String,
         required : true
     },
-    url:{
+    Name:{
+    	type: String,
+    	required : true
+    },
+    Sector:{
+    	type : String,
+    	required : true
+    },
+    industry:{
+    	type : String,
+    	required : true
+    },
+    UserID:{
         type: String,
         required : true
     }
