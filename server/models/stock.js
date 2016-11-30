@@ -22,7 +22,7 @@ var StockSchema = new mongoose.Schema({
         type: String,
         required : true
     }
-})
+});
 
 // Export the model schema
 module.exports = StockSchema;
