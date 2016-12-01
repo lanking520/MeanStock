@@ -8,6 +8,7 @@
         <th>Name</th>
         <th>Sector</th>
         <th>Industry</th>
+        <th>Price</th>
         <th>action</th>
      </tr>
     </thead>
@@ -17,6 +18,7 @@
       <td>{{stock.Name}}</td>
       <td>{{stock.Sector}}</td>
       <td>{{stock.industry}}</td>
+      <td>{{stock.price}}</td>
       <td>
         <button type="button" class="btn btn-danger" ng-click="deletestock(stock)">Delete</button>
         <button type="button" class="btn btn-success" ng-click="checkstock(stock)">Check</button>

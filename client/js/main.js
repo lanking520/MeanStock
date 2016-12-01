@@ -24,6 +24,19 @@ var mainController = function($scope,$http,$log,$window){
             params: {UserID : $scope.personalInfo.email}
         }).success(function(response) {
             $scope.mystocks = response;
+            var qstock = "";
+            for(i=0;i < $scope.mystocks.length;i++){qstock += $scope.mystocks[i]["Symbol"] + ",";}
+            $http({
+                url: "https://www.google.com/finance/info", 
+                method: "GET",
+                params: {client:"ig",q : qstock}
+                }).success(function(response) {
+                    response = response.substring(3);
+                    response = JSON.parse(response);
+                    for(i=0;i < $scope.mystocks.length;i++){
+                        $scope.mystocks[i]["price"] = response[i]["l"];
+                    }
+                });
         });
     }
     $scope.addstock = function(datapack){
@@ -50,6 +63,16 @@ var mainController = function($scope,$http,$log,$window){
                 $scope.successhider = true;
             }
         });
+    }
+    $scope.deletestock = function(datapack){
+        $http({
+            url: preUrl+"/stock/", 
+            method: "DELETE",
+            params:{UserID:datapack.UserID,Symbol:datapack.Symbol}
+             }).success(function(response) {
+                 var index = $scope.mystocks.indexOf(datapack);
+                 $scope.mystocks.splice(index,1);
+             });
     }
     $scope.logout = function(){
         $window.sessionStorage.setItem("PersonalInfo","");
