@@ -1,13 +1,13 @@
 /// </// <reference path="angular.min.js" />
 /// </// <reference path="highcharts.js" />
 var myApp = angular.module("Mainmodule",[]);
-var preUrl = "http://localhost:8008";
+var preUrl = "http://35.163.33.0";
 var mainController = function($scope,$http,$log,$window){
     $scope.currView="./home.html";
     $scope.init = function(){
         var data = $window.sessionStorage.getItem("PersonalInfo");
         if(data == "" || data == undefined)
-        {$window.location.href = '../index.html';}
+        {$window.location.href = '../';}
         $scope.personalInfo = JSON.parse(data)[0];
     }
     $scope.homeinit = function(){
@@ -115,7 +115,7 @@ var mainController = function($scope,$http,$log,$window){
     }
     $scope.logout = function(){
         $window.sessionStorage.setItem("PersonalInfo","");
-        $window.location.href = '../index.html';
+        $window.location.href = '../';
     }
 
 }
