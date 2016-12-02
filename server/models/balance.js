@@ -7,13 +7,17 @@ var BalanceSchema = new mongoose.Schema({
         min : 0,
     	required : true
     },
-    time:{
+    Time:{
     	type : Date,
     	required : true
     },
     UserID:{
         type: String,
         required : true
+    },
+    Type:{
+        type: String,
+        required:true
     }
 });
 
