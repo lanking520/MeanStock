@@ -35,7 +35,6 @@ var mainController = function($scope,$http,$log,$window){
                 params: {code : qstock},
                 contentType: "application/json; charset=utf-8"
                 }).success(function(response) {
-                    response = response.substring(3);
                     response = JSON.parse(response);
                     for(i=0;i < $scope.mystocks.length;i++){
                         $scope.mystocks[i]["price"] = response[i]["l"];
