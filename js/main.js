@@ -1,5 +1,5 @@
-/// </// <reference path="~/js/angular.min.js" />
-/// </// <reference path="~/js/highcharts.js" />
+/// </// <reference path="angular.min.js" />
+/// </// <reference path="highcharts.js" />
 var myApp = angular.module("Mainmodule",[]);
 var preUrl = "http://35.163.33.0";
 var mainController = function($scope,$http,$log,$window){
