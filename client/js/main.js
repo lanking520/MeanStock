@@ -1,4 +1,5 @@
 /// </// <reference path="angular.min.js" />
+/// </// <reference path="highcharts.js" />
 var myApp = angular.module("Mainmodule",[]);
 var preUrl = "http://localhost:8008";
 var mainController = function($scope,$http,$log,$window){
@@ -18,6 +19,8 @@ var mainController = function($scope,$http,$log,$window){
         $scope.failhider = true;
     }
     $scope.stockinit = function(){
+        // hide chart
+        $scope.mychart = true;
         $http({
             url: preUrl+"/stock", 
             method: "GET",
@@ -35,6 +38,8 @@ var mainController = function($scope,$http,$log,$window){
                     response = JSON.parse(response);
                     for(i=0;i < $scope.mystocks.length;i++){
                         $scope.mystocks[i]["price"] = response[i]["l"];
+                        $scope.mystocks[i]["pcls"] = response[i]["pcls_fix"];
+                        $scope.mystocks[i]["c_fix"] = response[i]["c_fix"];
                     }
                 });
         });
@@ -64,6 +69,40 @@ var mainController = function($scope,$http,$log,$window){
             }
         });
     }
+    
+    $scope.checkstock = function(datapack){
+        $scope.mychart = false;
+        var endDate = new Date().getTime();
+        var startDate = endDate-2629746000;
+        var startDate = new Date(startDate).toJSON().slice(0,10);
+        var endDate = new Date(endDate).toJSON().slice(0,10);
+        var sql = 'select * from yahoo.finance.historicaldata where symbol in (\"'+datapack.Symbol+'\") and startDate = "' + startDate + '" and endDate = "' + endDate + '"';
+        $http({
+            url: 'http://query.yahooapis.com/v1/public/yql', 
+            method: "GET",
+            params: {q:sql, env : 'http://datatables.org/alltables.env', format:"json"}
+        }).success(function(response){
+            response = response["query"]["results"]["quote"];
+            var x_label = [];
+            var y_label = [];
+            for(i=0;i< response.length;i++){
+                x_label.unshift(response[i]["Date"].substring(8));
+                y_label.unshift(parseFloat(response[i]["Open"]));
+            }
+            Highcharts.chart('datachart', {
+            title: {
+                text: datapack.Name+" From " +startDate+" to "+endDate
+            },
+            xAxis: {
+            categories: x_label
+            },
+            series: [{
+                data: y_label
+            }]
+    });
+        });
+    }
+
     $scope.deletestock = function(datapack){
         $http({
             url: preUrl+"/stock/", 

@@ -7,9 +7,10 @@
         <th>Symbol</th>
         <th>Name</th>
         <th>Sector</th>
-        <th>Industry</th>
+        <th>PCLS</th>
         <th>Price</th>
-        <th>action</th>
+        <th>Trend</th>
+        <th>Action</th>
      </tr>
     </thead>
   <tbody>
@@ -17,8 +18,9 @@
       <td>{{stock.Symbol}}</td>
       <td>{{stock.Name}}</td>
       <td>{{stock.Sector}}</td>
-      <td>{{stock.industry}}</td>
+      <td>{{stock.pcls}}</td>
       <td>{{stock.price}}</td>
+      <td>{{stock.c_fix}}</td>
       <td>
         <button type="button" class="btn btn-danger" ng-click="deletestock(stock)">Delete</button>
         <button type="button" class="btn btn-success" ng-click="checkstock(stock)">Check</button>
@@ -26,4 +28,5 @@
     </tr>
   </tbody>
     </table>
+<div ng-hide="mychart" id="datachart"></div>
 </div>
