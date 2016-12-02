@@ -1,0 +1,41 @@
+<div class="container" ng-init="homeinit()">
+
+      <div class="jumbotron">
+        <h1>Hello {{personalInfo.name}}, Welcome To MEAN Stock</h1>
+        <p class="lead">You can track your current stock here and play with it<br> Also do a simulation on bid and sell</p>
+      </div>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="sizing-addon1">Search Stock</span>
+        <input type="text" class="form-control" ng-model="$parent.targetstock" placeholder="Stock:name,category,etc" aria-describedby="sizing-addon1">
+      </div>
+      <div class="alert alert-success" role="alert" ng-hide="$parent.successhider">
+        <strong>Well done!</strong> You successfully Add the Stock
+      </div>
+      <div class="alert alert-danger" role="alert" ng-hide="$parent.failhider">
+        <strong>Sorry!</strong> You have already stored this stock
+      </div>
+      <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Sector</th>
+        <th>Industry</th>
+        <th>action</th>
+     </tr>
+    </thead>
+  <tbody>
+    <tr ng-repeat="stock in $parent.stocks | filter:targetstock | limitTo: 10">
+      <td>{{stock.Symbol}}</td>
+      <td>{{stock.Name}}</td>
+      <td>{{stock.Sector}}</td>
+      <td>{{stock.industry}}</td>
+      <td>
+        <button type="button" class="btn btn-info" ng-click="addstock(stock)">Add</button>
+        </td>
+    </tr>
+  </tbody>
+    </table>
+    <div ng-include="$parent.Static"></div>
+</div>
+

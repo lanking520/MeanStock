@@ -14,16 +14,11 @@
     <link href="css/signin.css" rel="stylesheet">
     <!-- Basic Module input -->
     <script src = "js/angular.min.js"></script>
-    <script src = "js/angular-route.min.js"></script>
     <script src = "js/login.js"></script>
 
   </head>
 
   <body ng-app="Mainmodule">
-
-    <div class="container" ng-controller="MainController">
-    <div ng-include="currView"></div>
-    {{result}}
-    </div> 
+    <div class="container" ng-controller="MainController" ng-include="currView"></div> 
   </body>
 </html>
