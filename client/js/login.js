@@ -2,6 +2,7 @@
 var myApp = angular.module("Mainmodule",[]);
 var preUrl = "http://localhost:8008";
 var mainController = function($scope,$http,$log,$window){
+  $scope.failhider = true;
   // Login Logic
   $scope.login = function(){
     if($scope.myEmail != undefined && $scope.myPassword != undefined){
@@ -10,7 +11,7 @@ var mainController = function($scope,$http,$log,$window){
             method: "GET",
             params: {email: $scope.myEmail, password:$scope.myPassword}
     }).success(function(response) {
-      if (response == []){$scope.result = "Login Failed!";}
+      if (response == ""){$scope.failhider = false;}
       else{
         $window.sessionStorage.setItem("PersonalInfo", JSON.stringify(response));
         $window.location.href = '/main/main.html';
@@ -26,17 +27,16 @@ var mainController = function($scope,$http,$log,$window){
             method: "POST",
             data: {email: $scope.myEmail, password:$scope.myPassword, name:$scope.myName}
     }).success(function(response) {
-      if (response == []){$scope.result = "Register Failed!";}
+      if (response == ""){$scope.failhider = false;}
       else{
-        $window.sessionStorage.setItem("PersonalInfo", JSON.stringify(response));
-        $window.location.href = '/main/main.html';
+        $scope.currView = "login/logintable.html";
       }
     });
     }
   };
   $scope.currView = "login/logintable.html";
-  $scope.goreg = function(){$scope.currView = "login/registertable.html"}
-  $scope.backhome= function(){$scope.currView = "login/logintable.html"}
+  $scope.goreg = function(){$scope.currView = "login/registertable.html";$scope.failhider = true;}
+  $scope.backhome= function(){$scope.currView = "login/logintable.html";$scope.failhider = true;}
 };
 
 myApp.controller("MainController",mainController);
