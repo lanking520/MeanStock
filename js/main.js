@@ -29,11 +29,7 @@ var mainController = function($scope,$http,$log,$window){
             $scope.mystocks = response;
             var qstock = "";
             for(i=0;i < $scope.mystocks.length;i++){qstock += $scope.mystocks[i]["Symbol"] + ",";}
-            $http({
-                url: "https://www.google.com/finance/info", 
-                method: "JSONP",
-                params: {client:"ig",q : qstock}
-                }).success(function(response) {
+            $http.get("https://www.google.com/finance/info", {params: {client:"ig",q : qstock}}).success(function(response) {
                     response = response.substring(3);
                     response = JSON.parse(response);
                     for(i=0;i < $scope.mystocks.length;i++){
