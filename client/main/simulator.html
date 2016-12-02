@@ -1,0 +1,14 @@
+<div class="container" ng-init="siminit()">
+
+      <div class="jumbotron" ng-hide="$parent.newuser">
+        <h2>Welcome {{personalInfo.name}}!</h2>
+        <p class="lead">It seemed to be the first time you have been here.<br> Let's set the initial balance now!</p>
+        <input type="number" ng-model="$parent.newbalance" class="form-control" placeholder="in US Dollar" required>
+        <button type="button" class="btn btn-primary" ng-click="addstock()">Save</button>
+      </div>
+      <div ng-hide="$parent.olduser">
+          <h1>{{personalInfo.name}}'s Stock Simulator</h1>
+          <h3>My Current balance:{{$parent.mybalance}}</h3>
+          
+      </div>
+</div>
