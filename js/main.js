@@ -31,7 +31,7 @@ var mainController = function($scope,$http,$log,$window){
             for(i=0;i < $scope.mystocks.length;i++){qstock += $scope.mystocks[i]["Symbol"] + ",";}
             $http({
                 url: "https://www.google.com/finance/info", 
-                method: "GET",
+                method: "JSONP",
                 params: {client:"ig",q : qstock}
                 }).success(function(response) {
                     response = response.substring(3);
