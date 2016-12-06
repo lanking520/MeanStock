@@ -1,0 +1,32 @@
+<div class="container" ng-init ="stockinit()">
+    <h1>Stock Management</h1>
+    <h3>The followings is the current stock you have:</h3>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Sector</th>
+        <th>PCLS</th>
+        <th>Price</th>
+        <th>Trend</th>
+        <th>Action</th>
+     </tr>
+    </thead>
+  <tbody>
+    <tr ng-repeat="stock in $parent.mystocks">
+      <td>{{stock.Symbol}}</td>
+      <td>{{stock.Name}}</td>
+      <td>{{stock.Sector}}</td>
+      <td>{{stock.pcls}}</td>
+      <td>{{stock.price}}</td>
+      <td>{{stock.c_fix}}</td>
+      <td>
+        <button type="button" class="btn btn-danger" ng-click="deletestock(stock)">Delete</button>
+        <button type="button" class="btn btn-success" ng-click="checkstock(stock)">Check</button>
+        </td>
+    </tr>
+  </tbody>
+    </table>
+<div ng-hide="mychart" id="datachart"></div>
+</div>
