@@ -11,10 +11,14 @@ var StocksimSchema = new mongoose.Schema({
     	required : true
     },
     Buy:{
-    	type : String,
+    	type : Number,
     	required : true
     },
-    time:{
+    Buyprice:{
+        type : Number,
+        required : true
+    },
+    Time:{
     	type : Date,
     	required : true
     },

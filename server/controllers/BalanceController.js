@@ -4,7 +4,7 @@ module.exports = function(app,route){
     //Setup for RESt.
     var rest =restful.model(
     'balance',
-    app.models.stock
+    app.models.balance
     ).methods(['get','put','post','delete']);
     // Register this end with the app
     rest.register(app, route);

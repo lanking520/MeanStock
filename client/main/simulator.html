@@ -1,14 +1,143 @@
 <div class="container" ng-init="siminit()">
 
-      <div class="jumbotron" ng-hide="$parent.newuser">
-        <h2>Welcome {{personalInfo.name}}!</h2>
-        <p class="lead">It seemed to be the first time you have been here.<br> Let's set the initial balance now!</p>
-        <input type="number" ng-model="$parent.newbalance" class="form-control" placeholder="in US Dollar" required>
-        <button type="button" class="btn btn-primary" ng-click="addstock()">Save</button>
+  <div class="jumbotron" ng-hide="$parent.newuser">
+    <h2>Welcome {{personalInfo.name}}!</h2>
+    <p class="lead">It seemed to be the first time you have been here.<br> Let's set the initial balance now!</p>
+    <div class="input-group">
+      <input type="number" min="10" ng-model="$parent.newbalance" class="form-control" placeholder="in US Dollar" required>
+      <span class="input-group-btn">
+            <button type="button" class="btn btn-primary" ng-click="addbalance('add')">Save</button>
+          </span>
+    </div>
+  </div>
+  <div ng-hide="$parent.olduser">
+    <h1>{{personalInfo.name}}'s Stock Simulator</h1>
+    <h3>My Current balance: ${{balance[0].Balance}}</h3>
+    <div class="input-group">
+      <input type="number" min="10" ng-model="$parent.newbalance" class="form-control" placeholder="in US Dollar" required>
+      <span class="input-group-btn">
+            <button type="button" class="btn btn-primary" ng-click="addbalance('add')">Add</button>
+          </span>
+    </div>
+
+    <h3>Buy stock!</h3>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1">Search Stock</span>
+      <input type="text" class="form-control" ng-model="$parent.targetstock" placeholder="Stock:name,category,etc" aria-describedby="sizing-addon1">
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Sector</th>
+          <th>Industry</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="stock in $parent.stocks | filter:targetstock | limitTo: 5">
+          <td>{{stock.Symbol}}</td>
+          <td>{{stock.Name}}</td>
+          <td>{{stock.Sector}}</td>
+          <td>{{stock.industry}}</td>
+          <td>
+            <button type="button" class="btn btn-success" ng-click="buycheck(stock)">Buy!</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div ng-hide="buyform">
+      <div class="alert alert-danger" role="alert" ng-hide="$parent.failhider">
+        <strong>Sorry!</strong> Balance Not enough!
       </div>
-      <div ng-hide="$parent.olduser">
-          <h1>{{personalInfo.name}}'s Stock Simulator</h1>
-          <h3>My Current balance:{{$parent.mybalance}}</h3>
-          
-      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Sector</th>
+            <th>PCLS</th>
+            <th>Price</th>
+            <th>Trend</th>
+            <th>Balance Cost</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{currstock.Symbol}}</td>
+            <td>{{currstock.Name}}</td>
+            <td>{{currstock.Sector}}</td>
+            <td>{{currstock.pcls}}</td>
+            <td>{{currstock.price}}</td>
+            <td>{{currstock.c_fix}}</td>
+            <td>{{stocknum * currstock.price}}</td>
+            <td>
+              <div class="input-group">
+                <input type="number" min="1" ng-model="$parent.stocknum" class="form-control" placeholder="Num of Stocks" required>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary" ng-click="buystock()">Buy</button>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>My Purchased Stocks</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Buying Price</th>
+          <th>Buying Amount</th>
+          <th>Current Price</th>
+          <th>Earning</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="purchase in $parent.purchasedstock">
+          <td>{{purchase.Symbol}}</td>
+          <td>{{purchase.Name}}</td>
+          <td>{{purchase.Time}}</td>
+          <td>{{purchase.Buyprice}}</td>
+          <td>{{purchase.Buy}}</td>
+          <td>{{purchase.price}}</td>
+          <td>{{(purchase.price-purchase.Buyprice) * purchase.Buy}}</td>
+          <td>
+            <button type="button" class="btn btn-info" ng-click="sellstock(purchase)">Sell</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>My Recent Actions</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Balance</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="balance in $parent.balance.slice(1)">
+          <td>{{balance.Balance}}</td>
+          <td>{{balance.Type}}</td>
+          <td>{{balance.Time}}</td>
+          <td>
+            <button type="button" class="btn btn-danger" ng-click="deletebalance(balance)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
