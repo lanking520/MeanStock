@@ -98,6 +98,7 @@ var mainController = function ($scope, $http, $log, $window) {
         var currdate = new Date();
         var balance = 0;
         if ($scope.balance != undefined) { balance = $scope.balance[0].Balance; }
+        if ($scope.newbalance = undefined) {$scope.newbalance = 10;}
         $http({
             url: preUrl + "/balance",
             method: "POST",
