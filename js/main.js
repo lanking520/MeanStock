@@ -56,6 +56,7 @@ var mainController = function ($scope, $http, $log, $window) {
         }).success(function (response) {
             if (response == "") {
                 $scope.newuser = false;
+                $scope.balance = [];
             }
             else {
                 response.sort(function (a, b) {
