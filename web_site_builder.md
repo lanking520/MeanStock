@@ -11,6 +11,7 @@
 ## Requirement (Mac)
 On amazon EC2 machince
 [http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2]
+[http://stackoverflow.com/questions/7948789/mongodb-mongod-complains-that-there-is-no-data-db-folder]
 ### System Environment
 ```
 sudo apt-get install build-essential curl git python-setuptools ruby
