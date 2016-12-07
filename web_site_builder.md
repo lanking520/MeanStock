@@ -27,6 +27,10 @@ npm install -g bower
 gem install compass
 
 ```
+### Enable IP forwarding
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+```
 ### Module in server
 ```
 npm install --save express
