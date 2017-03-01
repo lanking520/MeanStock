@@ -10,9 +10,9 @@
 
 ## Requirement (Mac)
 On amazon EC2 machince
-(Start EC2)[http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2]
-(Fix No DB folder)[http://stackoverflow.com/questions/7948789/mongodb-mongod-complains-that-there-is-no-data-db-folder]
-(Install MongoDB)[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/]
+[Start EC2][http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2]
+[Fix No DB folder][http://stackoverflow.com/questions/7948789/mongodb-mongod-complains-that-there-is-no-data-db-folder]
+[Install MongoDB][https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/]
 ### System Environment
 ```
 sudo apt-get install build-essential curl git python-setuptools ruby
